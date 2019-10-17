@@ -1,0 +1,328 @@
+@font-face {
+  font-family: 'Mansalva';
+  src: local('Mansalva'),
+    url(./fonts/Mansalva/Mansalva-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: local('Raleway'),
+    url(./fonts/Raleway/Raleway-Regular.ttf) format('truetype');
+}
+
+:root {
+  font-family: Raleway, -apple-system, sans-serif;
+  font-size: 20px;
+}
+
+.theme--dark {
+  --color-bg: hsl(0, 0%, 12%);
+  --color-bg-muted: hsl(0, 0%, 15%);
+  --color-borders: hsl(0, 0%, 33%);
+  --color-fg: hsl(0, 0%, 70%);
+  --color-primary: hsl(34, 60%, 50%);
+  --color-primary--muted: hsl(34, 50%, 43%);
+}
+
+.theme--light {
+  --color-bg: hsl(0, 0%, 90%);
+  --color-bg-muted: hsl(0, 0%, 50%);
+  --color-borders: hsl(0, 0%, 33%);
+  --color-fg: hsl(0, 0%, 12%);
+  --color-primary: hsl(34, 60%, 25%);
+  --color-primary--muted: hsl(34, 50%, 21%);
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+p {
+  margin: 0;
+}
+p + p {
+  margin-top: 1em;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.pagination {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  font-family: Mansalva;
+  font-size: 1vw;
+}
+
+.pagination > li {
+  display: inline-block;
+  margin: 0 0.5em;
+}
+
+.tabs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tab {
+  display: inline-block;
+  margin-right: 1px;
+}
+
+.tab > button,
+.tab > a {
+  cursor: pointer;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: var(--color-bg--muted);
+  border: 1px solid var(--color-primary);
+  background-color: var(--color-primary--muted);
+  outline: 0;
+  transition: 0.2s;
+}
+
+.tab:hover > button,
+.tab.tab--active > button,
+.tab:hover > a,
+.tab.tab--active > a {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+}
+
+.pane {
+  position: relative;
+  top: -1px;
+  border: 1px solid var(--color-primary);
+  padding: 1em;
+  max-height: 50vh;
+  overflow: auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.gutter {
+  cursor: col-resize;
+  background: white;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.gutter:hover {
+  opacity: 0.1;
+}
+
+.video-player,
+.audio-player {
+  white-space: nowrap;
+  text-align: center;
+  background: var(--color-bg-muted);
+  border: 1px solid #555;
+  padding: 0.5em;
+  margin: 1em auto;
+}
+
+.video-player video {
+  width: 100%;
+}
+
+.audio-player {
+  width: min-content;
+}
+.video-player {
+  width: 50%;
+}
+
+.video-player button,
+.audio-player button {
+  /* background-color: #ccc;
+  color: green;
+  padding: 0.5em 1.5em;
+  margin: 0.5em;
+  border-width: 3px;
+  border-style: outset; */
+  margin: 0.5em;
+  background: var(--color-bg);
+  border: 1px solid var(--color-borders);
+  color: var(--color-fg);
+  font-size: 1vw;
+  padding: 0.5vw;
+  white-space: nowrap;
+  opacity: 0.5;
+  transition: 0.2s;
+  height: 1em;
+  box-sizing: content-box;
+  outline: 0;
+  vertical-align: top;
+}
+
+.video-player button:disabled,
+.audio-player button:disabled {
+  color: hsl(0, 0%, 20%);
+  /* 
+  background-color: #aaa;
+  color: #ccc;
+  border-width: 1px; */
+}
+
+.video-player input,
+.audio-player input {
+  margin: 1em 0.5em 0.5em 0.5em;
+}
+
+.secret {
+  opacity: 0;
+  transition: 0.2s;
+}
+
+.secret:hover {
+  opacity: 1;
+}
+
+.editor {
+  border: 1px solid hsl(0, 0%, 16%);
+  height: 100%;
+}
+
+.slide {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.slide-title {
+  font-size: 4vw;
+  text-align: center;
+  font-family: Mansalva;
+  font-weight: normal;
+  margin: 0.2em 0;
+}
+
+.slide-subtitle {
+  font-size: 2vw;
+  text-align: center;
+  font-family: Raleway;
+  font-weight: normal;
+  margin: 0 0 0.2em 0;
+}
+
+.slide-content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.slide-content > section {
+  margin-left: 5vw;
+  margin-right: 5vw;
+  font-size: 2vw;
+}
+
+.side-full {
+  height: 50vh;
+  margin: 0 auto;
+  display: block;
+}
+
+.diff-player {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  font-size: 1vw;
+}
+
+.diff-player > button,
+.diff-player > input {
+  background: var(--color-bg);
+  border: 1px solid var(--color-borders);
+  color: var(--color-fg);
+  font-size: 1vw;
+  padding: 0.5vw;
+  white-space: nowrap;
+  opacity: 0.8;
+  transition: 0.2s;
+  height: 1em;
+  box-sizing: content-box;
+  outline: 0;
+  vertical-align: top;
+}
+
+.diff-player > input {
+  width: 50px;
+}
+
+.diff-player > button:not([disabled]):hover,
+.diff-player > input:not([disabled]):hover {
+  opacity: 1;
+}
+
+.diff-player > button[disabled] {
+  color: hsl(0, 0%, 20%);
+}
+
+.diff-player > button:not([disabled]) {
+  cursor: pointer;
+}
+
+input[type='range'],
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  margin-top: -7px;
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--color-borders);
+  background: var(--color-bg);
+  cursor: pointer;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: var(--color-bg);
+  border-radius: 0;
+  border: 1px solid var(--color-borders);
+}
+
+input[type='range']:focus::-webkit-slider-runnable-track {
+  width: 100%;
+  background: var(--color-bg);
+}
